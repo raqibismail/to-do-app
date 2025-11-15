@@ -1,7 +1,8 @@
+import { response } from "express";
 import prisma from "../../prisma";
 
 export function getTodos() {
-  return prisma.todo.findMany();
+  return prisma.todo.findMany({ orderBy: { id: "asc" } });
 }
 
 export function createTodo(title: string) {
